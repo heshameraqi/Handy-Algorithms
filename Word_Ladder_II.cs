@@ -1,4 +1,4 @@
-################################################################################
+/*################################################################################
 #
 # Copyright (c) 2018
 # Authors:
@@ -27,7 +27,7 @@
 #You may assume no duplicates in the word list.
 #You may assume beginWord and endWord are non-empty and are not the same.
 #
-################################################################################
+################################################################################*/
 
 public class Solution {
     public bool isDifferentInOneLetter(string str1, string str2) {
