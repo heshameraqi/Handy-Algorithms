@@ -38,8 +38,8 @@ class Solution
               Visit(boggle,visited, row, col, str);
 
         // Erase current character from string and mark visited of current cell as false
-        str = str.Remove(str.Length-1);
-        visited[i,j] = false;
+        str = str.Remove(str.Length-1); // Not needed because the string variable is passed is value already.
+        visited[i,j] = false; // Importrant because in C# array is passed by reference
     }
     
     static void findWords(char[,] boggle) {
