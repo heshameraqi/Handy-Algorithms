@@ -6,8 +6,8 @@
 #
 ################################################################################*/
 
-# Heabsort & Mergesort are O(nlog(n)) but are not inplace. Heabsort is not stable, merge sort is stable.
-# Quick sort is O(n^2) but in-place.
+// Heabsort & Mergesort are O(nlog(n)) but are not inplace. Heabsort is not stable, merge sort is stable.
+// Quick sort is O(n^2) but in-place.
 
 using System;
 using System.Collections.Generic; // For Dictionary and List
@@ -21,7 +21,7 @@ class Node {
        this.data = s;
    }
     
-    public Node(Node otherNode) { // Copy constructor
+    public Node(Node otherNode) { // Copy constructor (not neccessarly needed in this problem)
         this.key = otherNode.key;
         this.data = otherNode.data;
     }
@@ -50,13 +50,13 @@ class Solution
 
         if (smallest != index) {
             Swap(A, index, smallest);
-            HeapifyParent(A, smallest);
+            HeapifyParent(A, smallest); // Recursively heapify the affected sub-tree 
         }
     }
     
     static void BuildHeap(List<Node> A, int index) { // T(n) = 2T(n/2)+log(n) = O(n)
         int n = A.Count;
-        if (index <= n/2) { //row before last
+        if (index <= (n-1)/2) { //until before last
             if (index*2+1 <= n-1) // Left cild exist
                 BuildHeap(A, index*2+1); // First child
             if (index*2+2 <= n-1) // Right cild exist
@@ -65,7 +65,7 @@ class Solution
         }
     }
     
-    static Node DeleteMin(List<Node> A) {
+    static Node DeleteMin(List<Node> A) { // O(lon(n))
         Node min = new Node(A[0]);
         A[0] = A[A.Count-1]; // Get the last to the root
         A.RemoveAt(A.Count-1);
@@ -90,7 +90,7 @@ class Solution
         };      
   
         // 1. BuildHeap
-        BuildHeap(data, 0);
+        BuildHeap(data, 0);  // O(n)
         
         // Print the heap array
         foreach (Node n in data)
