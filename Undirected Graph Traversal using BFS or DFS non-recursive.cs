@@ -25,7 +25,7 @@ class Solution
             {true, false, false, true, true, false, false},
             {true, false, false, false, true, false, false} };
         
-        bool BFS = true; // false if DFS is needed
+        bool BFS = false; // false if DFS is needed
         int[] order = new int[data.Length];
         if (BFS) {
             Queue<int> searchQueue = new Queue<int>();
@@ -37,7 +37,7 @@ class Solution
                 for (int i = 0; i<data.Length; i++) //left to right (more accurate than the opposite)
                     if (Adj_Matrix[i,k] && order[i] == 0) { // 0:unseen
                         searchQueue.Enqueue(i);
-                        order[i] = 1; // 1:seen but waiting it's value
+                        order[i] = -1; // -1:seen but waiting it's value
                     }
             }
         }
@@ -51,7 +51,7 @@ class Solution
                 for (int i = data.Length-1; i>=0; i--) //right to left
                     if (Adj_Matrix[i,k] && order[i] == 0) { // 0:unseen
                         searchStack.Push(i);
-                        order[i] = 1; // 1:seen but waiting it's value
+                        order[i] = -1; // -1:seen but waiting it's value
                     }
 
             }
