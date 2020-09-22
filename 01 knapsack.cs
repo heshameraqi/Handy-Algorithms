@@ -42,6 +42,6 @@ class Solution
         int m = 5;
         
         Console.WriteLine(knapsack_recursive(w,v,w.Length,m)); // O(n^2)
-        Console.WriteLine(knapsack_dynamicProg(w,v,m));
+        Console.WriteLine(knapsack_dynamicProg(w,v,m));  // // O(nm), linear in n
     }
 }
