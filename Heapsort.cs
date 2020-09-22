@@ -6,6 +6,9 @@
 #
 ################################################################################*/
 
+# Heabsort & Mergesort are O(nlog(n)) but are not inplace. Heabsort is not stable, merge sort is stable.
+# Quick sort is O(n^2) but in-place.
+
 using System;
 using System.Collections.Generic; // For Dictionary and List
 
