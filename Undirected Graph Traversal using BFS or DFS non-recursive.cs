@@ -24,8 +24,8 @@ class Solution
             {false, false, false, true, false, true, true},
             {true, false, false, true, true, false, false},
             {true, false, false, false, true, false, false} };
-        
         bool BFS = false; // false if DFS is needed
+        
         int[] order = new int[data.Length];
         if (BFS) {
             Queue<int> searchQueue = new Queue<int>();
