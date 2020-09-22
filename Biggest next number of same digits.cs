@@ -1,56 +1,51 @@
-/*################################################################################
-#
-# Copyright (c) 2018
-# Authors:
-#  Hesham M. Eraqi (heraqi@aucegypt.edu)
-#
-################################################################################*/
-
 using System;
-using System.Text; // For StringBuilder
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
 
 class Solution
 {
-    static int FindPivot(string num) {
-        for (int i=num.Length-1; i>=1; i--) { // From right to left
-            if ( Convert.ToInt32(num[i-1]) < Convert.ToInt32(num[i]) )
-                return i-1;
-        }
-        return -1;
-    }
-    
-    static void Main(string[] args) // If number is 9876 it's the result already
+    static void Main(string[] args)
     {
-        //string num = Console.ReadLine();
-        string num = "98753941"; // 98753941->98754931 98791->98971
-        StringBuilder result = new StringBuilder(num);
-        int p_idx = Solution.FindPivot(num);
-        if (p_idx != -1) {
-            // Get lowest_bigger_right_idx
-            int lowest_biggest_right_idx = p_idx+1;
-            for (int i = p_idx+2; i < num.Length; i++)
-                if (Convert.ToInt32(num[i]) > Convert.ToInt32(num[p_idx]) && 
-                    Convert.ToInt32(num[i]) < Convert.ToInt32(num[lowest_biggest_right_idx]))
-                    lowest_biggest_right_idx = i;
-            
-            Console.WriteLine(p_idx); // For Debugging
-            Console.WriteLine(lowest_biggest_right_idx); // For Debugging
-            
-            // Swap
-            char temp = num[lowest_biggest_right_idx];
-            result[lowest_biggest_right_idx] = num[p_idx];
-            result[p_idx] = temp;
-            
-            // Sort
-            string toSort = result.ToString().Substring(lowest_biggest_right_idx);
-            char[] toSort_array = toSort.ToCharArray();
-            Array.Sort(toSort_array);
-            toSort = new string(toSort_array);
-            
-            result.Remove(lowest_biggest_right_idx, toSort.Length);
-            result.Append(toSort);
+        string input = "98753941";
+        Console.WriteLine(input);
+
+        // From right to left spot D1: number breaks ascending order
+        int pivot = -1;
+        for (int i=input.Length-1; i>=1; i--)
+            if (Convert.ToInt32(input[i]) > Convert.ToInt32(input[i-1])) {
+                pivot = i-1;
+                break;
+            }
+        if (pivot == -1) {
+            Console.Write("None");
+            return;
+        }
+
+        // Get next big number to the right
+        int diff = 10;
+        int int_next_biggest = -1;
+        for (int i=pivot+1; i<input.Length; i++) {
+            int new_diff = Convert.ToInt32(input[i]) - Convert.ToInt32(input[pivot]);
+            if ( new_diff > 0 && new_diff<diff ) {
+                diff = new_diff;
+                int_next_biggest = i;
+            }
         }
         
-        Console.WriteLine(result.ToString());
+        // Swap pivot & next big number to the right
+        char[] chars = input.ToCharArray();
+        chars[pivot] = input[int_next_biggest];
+        chars[int_next_biggest] = input[pivot];
+        input = new String(chars);
+        
+        // Sort starting from pivot to right
+        string to_sort = input.Substring(pivot+1);
+        chars = to_sort.ToCharArray();
+        Array.Sort(chars);
+        to_sort = new string(chars);
+        input = input.Remove(pivot+1, to_sort.Length);
+        input = input + to_sort;
+        Console.WriteLine(input);
     }
 }
