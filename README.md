@@ -1,2 +1,2 @@
-# Handy-Algorithms-in-CSharp
-Handy Algorithms in C#
+# Handy-Algorithms
+Handy Algorithms
