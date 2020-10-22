@@ -1,19 +1,18 @@
-# Least_Squares_Circle using least squares fitting (scipy.optimize.leastsq)
-import numpy as np
-from scipy import optimize
-import math
 import matplotlib.pyplot as plt
+from scipy.optimize import leastsq
+import numpy as np
 
-# The points
-x = np.array([  9, 35, -13,  10,  23,   0])
-y = np.array([ 34, 10,   6, -14,  27, -10])
-plt.plot(x, y, 'r*')
+x = [-5, 0, 5, 0]
+y = [0, 5, 0, -6]
 
-def dist_to_centre(c):
-    r = np.sqrt((x-c[0])**2 + (y-c[1])**2) # array
-    return r - r.mean() # error to minimize
+plt.plot(x, y, '*')
 
-center_intial = np.mean(x), np.mean(y)
-center, _ = optimize.leastsq(dist_to_centre, center_intial)  # Get best centre with smallest dist_to_centre
-r = np.sqrt((x-center[0])**2 + (y-center[1])**2).mean()
-plt.gcf().gca().add_artist(plt.Circle(center, r, color='r'))
+def losses(c): # Returns array: loss for each point
+  dist = np.sqrt((x-c[0])**2 + (y-c[1])**2) # Array
+  return dist - np.mean(dist)
+
+centre_intial = np.mean(x), np.mean(y)
+centre, _ = leastsq(losses, centre_intial) # Losses to minize their squres error
+r = np.sqrt((x-centre[0])**2 + (y-centre[1])**2).mean()
+
+plt.gcf().gca().add_artist(plt.Circle(centre, r))
