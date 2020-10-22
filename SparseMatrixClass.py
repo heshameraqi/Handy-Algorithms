@@ -13,23 +13,12 @@ class SparseMatrix:
             sparse_matrix = args[0]
             self.rows = len(sparse_matrix)
             self.cols = len(sparse_matrix[0])
-            # Storing into compact format
-            size = 0
+            # Storing into compact format: row, column, value for every non-zero element
+            self.compact_matrix = []
             for i in range(self.rows): 
                 for j in range(self.cols): 
-                    if (sparse_matrix[i][j] != 0): 
-                        size += 1
-
-            # compact_matrix format is: row, column, value for every non-zero element
-            self.compact_matrix = [[0 for i in range(3)] for j in range(size)] 
-            k = 0
-            for i in range(self.rows): 
-                for j in range(self.cols): 
-                    if (sparse_matrix[i][j] != 0): 
-                        self.compact_matrix[k][0] = i 
-                        self.compact_matrix[k][1] = j 
-                        self.compact_matrix[k][2] = sparse_matrix[i][j] 
-                        k += 1
+                    if sparse_matrix[i][j] != 0: 
+                        self.compact_matrix.append([i, j, sparse_matrix[i][j] ])
         else:
             self.compact_matrix = args[0]
             self.rows = args[1]
@@ -37,8 +26,7 @@ class SparseMatrix:
             
 
     def transpose(self):
-        compact_matrix_1_trans = SparseMatrix([], self.rows, self.cols)
-        compact_matrix_1_trans.compact_matrix = self.compact_matrix.copy()
+        compact_matrix_1_trans = SparseMatrix(self.compact_matrix.copy(), self.rows, self.cols)
         compact_matrix_1_trans.compact_matrix = [[num[1], num[0], num[2]] for num in compact_matrix_1_trans.compact_matrix]
         compact_matrix_1_trans.compact_matrix.sort(key=lambda x:x[0])  # to  preserve the sorting by row-col value
         return compact_matrix_1_trans
@@ -117,7 +105,7 @@ compact_matrix_0 = SparseMatrix([[0, 0, 3, 0, 4],
                                  [0, 0, 5, 7, 0],
                                  [0, 0, 0, 0, 0],
                                  [0, 2, 6, 0, 0]])
-# print(compact_matrix_0.compact_matrix)
+print(compact_matrix_0.compact_matrix)
 
 compact_matrix_1 = SparseMatrix([[1,2,10],
                                  [1,4,12],
@@ -129,7 +117,7 @@ compact_matrix_2 = SparseMatrix([[1,3,8],
                                  [3,3,9],
                                  [4,1,20],
                                  [4,2,25]], 4, 4)
-# print(compact_matrix_1.transpose().compact_matrix)
-# print(compact_matrix_1.add(compact_matrix_2).compact_matrix)
-print(compact_matrix_1.multiply(compact_matrix_2).compact_matrix)
+print(compact_matrix_1.transpose().compact_matrix)
+print(compact_matrix_1.add(compact_matrix_2).compact_matrix)
+# print(compact_matrix_1.multiply(compact_matrix_2).compact_matrix) # TODO
 
