@@ -13,6 +13,8 @@ class Node:
         self.key = key
         self.data = data
 
+# --------------------------------------------------------------------
+        
 def merge_sort(data, s, e):
     if e > s: # 2 elements or more
         m = s + int((e - s)/2)
@@ -41,7 +43,8 @@ def merge(data, s, m, e):
     for i in range(len(sorted_part)):
         data[i+s] = sorted_part[i]
 
-# ---------------------------
+# --------------------------------------------------------------------
+
 def swap(data, i, j):
     temp = data[i]
     data[i] = data[j]
@@ -63,20 +66,50 @@ def quick_sort(data, s, e):
             p = partition(data, s, e)
             quick_sort(data, s, p)
             quick_sort(data, p+1, e)
-# ---------------------------
 
-def heap_sort(data, )
+# --------------------------------------------------------------------
+
+def build_heap(data, index): # T(n) = 2T(n/2)+log(n) = O(n), index is the parent to start from
+        n = len(data)
+        if index <= (n-1)/2: # until before last row in the heap tree
+            if index*2+1 <= n-1: # Left cild exist
+                build_heap(data, index*2+1); # First child
+            if index*2+2 <= n-1: # Right cild exist
+                build_heap(data, index*2+2) # Second child
+            heapify_parent(data, index)
+
+def heapify_parent(data, index): # O(log(n))
+    left = 2*index + 1
+    right = 2*index + 2
+    smallest = index
+
+    if left <= len(data)-1 and data[left].key < data[index].key: # left<= n-1 means it exist
+        smallest = left
+    if right <= len(data)-1 and data[right].key < data[smallest].key: # right<= n-1 means it exist
+        smallest = right
+
+    if smallest != index:
+        swap(data, index, smallest)
+        heapify_parent(data, smallest) # Recursively heapify the affected sub-tree 
+    
+def delete_min(data): # O(lon(n))
+        min_node = Node(data[0].key, data[0].data)
+        data[0] = data[len(data)-1] # Get the last to the root
+        data.pop(len(data)-1)
+        if len(data) > 0: # A wasn't a single element tree
+            heapify_parent(data, 0)
+        return min_node
+
+def heap_sort(data):
+    build_heap(data, 0) # O(n)
     sorted_data = []
     count = len(data)
     for i in range(count):
-        sorted_data.append(DeleteMin(data));
+        sorted_data.append(delete_min(data)) # O(lon(n))
+    print([str(sorted_data[i].key) + " " + sorted_data[i].data for i in range(len(sorted_data))])
 
-def heap_sort(data, )
-    sorted_data = []
-    count = len(data)
-    for i in range(count):
-        sorted_data.append(DeleteMin(data));
-
+# --------------------------------------------------------------------
+        
 data = [Node(10, "Hesham"),
         Node(5, "Ahmed"),
         Node(7, "John"),
@@ -114,5 +147,4 @@ data = [Node(10, "Hesham"),
         Node(8, "Michael"),
         Node(4, "Fred"),
         Node(3, "Jens")]
-heap_sort(data, 0, len(data)-1)  # takes start and end indices
-print([str(data[i].key) + " " + data[i].data for i in range(len(data))])
+heap_sort(data)  # does the printing
