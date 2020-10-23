@@ -29,7 +29,7 @@
 #print(set(x1)) # unique elements
 #print(sorted(set(x1))) 
 #print( set(x1) & set(x2) ) # sets intersection
-#print( set(x1) & set(x2) ) # sets unique elements
+#print( set(x1) ^ set(x2) ) # sets unique elements
 
 # Matrix Multplication
 A = [[12,7,3],
