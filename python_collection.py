@@ -10,10 +10,10 @@
 # if ( (y[e]−y[s])/(x[e]−x[s]) <= (y[m]−y[s])/(x[m]−x[s]) ):
 
 # To check if 2 line segments intersect:
-# if from one line, the other line two points are left and right to it & the same vise-versa
+# if from one line, the other line two points are left and right to it
 
 # Get intersection point:
-# There is aformula for that to use
+# There is a formula for that to use
 
 # String useful operations:
 #s = "Hesham Eraqi"
@@ -52,5 +52,5 @@ print(C)
 A = [[1,2],
      [3,4],
      [5,6]]
-Trans = [ [A[i][j] for i in range(len(A))] for j in range(len(A[0])) ] # i is for rows, j is for columns, the inner loop is giving list from rows
+Trans = [ [A[i][j] for i in range(len(A))] for j in range(len(A[0])) ] # i is for rows, j is for columns, the inner loop is giving list of rows
 print(Trans)
