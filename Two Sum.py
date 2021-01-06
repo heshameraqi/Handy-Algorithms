@@ -12,12 +12,11 @@
 x = [2, 4, 1, 5, 10, 6]
 target = 10
 
-x_hash = {}
-
+h = {} #value (because later I ask: does that value exist in the array in O(1)) to index
 for i in range(len(x)):
-    x_hash[x[i]] = 0
+    h[x[i]] = i
     
 for i in range(len(x)):
-    rem = target-x[i]
-    if rem in x_hash:
-        print(str(x[i]) + " " + str(rem))
+    rem = target - x[i]
+    if rem in h:
+        print('Found at indicies %d and %d' % (i, h[rem]))
