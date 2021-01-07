@@ -5,7 +5,7 @@ Python scripts suggested order:
 2. Two Sum.py
 3. subarrays with given sum.py
 4. SumSubset Recursive & DynamicProg.py
-5. 01 knapsack.cs.py
+5. 01 knapsack.py
 6. project_vector_into_another_dot_cross_products.py
 7. fit_to_circle.py
 8. detect_lines_in_image_hough.py
