@@ -7,10 +7,9 @@
 ################################################################################
 import numpy as np
 
-
 def knap_sack(W, wt, val):
     V = np.zeros((len(wt)+1, W+1))
-    
+   
     for c in range(1, V.shape[1]):
         for r in range(1, V.shape[0]):
             V[r,c] = V[r-1,c] # Won't take it
@@ -24,5 +23,3 @@ val = [6, 10, 12]
 wt = [1, 2, 3] 
 W = 5
 print(knap_sack(W, wt, val)) # 22
-
-
