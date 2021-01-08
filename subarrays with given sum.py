@@ -43,8 +43,6 @@ for i in range(len(cum_sum)):
     h[cum_sum[i]] = i
 
 for i in range(len(cum_sum)):
-    if i==10:
-        x = 5
     searching = target + cum_sum[i]
     if searching in h:
         if h[searching] > i:
