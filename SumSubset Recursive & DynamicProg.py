@@ -19,6 +19,7 @@ def subset_sum_recursive(arr, sum):
     return subset_sum_recursive(arr[0:-1], sum-arr[-1]) or subset_sum_recursive(arr[0:-1], sum)
 
 # Dynamic Programming (Used when solutions of the same subproblems are needed again and again)
+# Canbe used when there are 1) Overlapping Subproblems and the problem has 2) Optimal Substructure property
 # In dynamic programming, computed solutions to subproblems are stored in a table so that these don’t have to be recomputed. So Dynamic Programming is not useful when there are no common (overlapping) subproblems because there is no point storing the solutions if they are not needed again.
 # To use DP, Optimal Substructure Property should be true for the problem: Optimal solution of the given problem can be obtained by using optimal solutions of its subproblems. 
 # Worst case complexity: O(sum*n)
