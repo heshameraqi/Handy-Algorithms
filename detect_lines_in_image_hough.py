@@ -1,3 +1,11 @@
+################################################################################
+#
+# Copyright (c) 2022
+# Authors:
+#  Hesham M. Eraqi (heraqi@aucegypt.edu)
+#
+################################################################################
+
 # Create an edge image from 0 to 1
 import matplotlib.pyplot as plt
 import numpy as np
