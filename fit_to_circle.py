@@ -1,3 +1,11 @@
+################################################################################
+#
+# Copyright (c) 2022
+# Authors:
+#  Hesham M. Eraqi (heraqi@aucegypt.edu)
+#
+################################################################################
+
 from scipy.optimize import leastsq
 import numpy as np
 
