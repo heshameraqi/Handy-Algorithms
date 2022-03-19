@@ -6,6 +6,7 @@ Python scripts suggested refreshing order:
 3. [Subarrays with a given sum](https://github.com/heshameraqi/Handy-Algorithms/blob/master/subarrays%20with%20given%20sum.py)
 4. [Subset Sum (Recursive & Dynamic Prog.)](https://github.com/heshameraqi/Handy-Algorithms/blob/master/SumSubset%20Recursive%20%26%20DynamicProg.py)
 5. [Subset Sum Count (Recursive & Dynamic Prog.)](https://github.com/heshameraqi/Handy-Algorithms/blob/master/SumSubset%20Count%20Recursive%20%26%20DynamicProg.py)
+6. [Fibonacci Numbers](https://github.com/heshameraqi/Handy-Algorithms/blob/master/fibonacci_numbers.py)
 7. [01 Knapsack](https://github.com/heshameraqi/Handy-Algorithms/blob/master/01%20knapsack.py)
 8. [Pair-wise Swap](https://github.com/heshameraqi/Handy-Algorithms/blob/master/PairwiseSwap.py)
 9. [Project vector into_another (dot & cross products)](https://github.com/heshameraqi/Handy-Algorithms/blob/master/project_vector_into_another_dot_cross_products.py)
