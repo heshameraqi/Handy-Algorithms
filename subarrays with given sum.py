@@ -43,7 +43,6 @@ for i in range(len(acc_arr)):
     if acc_arr[i] == target: # special case if starting with first index can lead to target
         print("Target sum between index 0 and %d"%(i))
 
-
 # -------------------------------------------------------------
 # O(n^2) Solution (another style)
 start = 0
