@@ -1,13 +1,13 @@
 from scipy.optimize import leastsq
 import numpy as np
 
-x = [-5, 0, 5, 0]
-y = [0, 5, 0, -6]
+x = [-5, 1, 5, -2]
+y = [-0.8, 5, 1, -4]
 
-def losses(c):  # Returns array: loss for each point
-  dist = np.sqrt((x-c[0])**2 + (y-c[1])**2)  # Array
+def losses(centre):  # Returns array: loss for each point
+  dist = np.sqrt((x-centre[0])**2 + (y-centre[1])**2)  # Array
   r = np.mean(dist)
-  return dist - r  # can't take the mean of this because scipy,optimize.leastsq needs it longer than the number of parameters to optimize (2 in our case)
+  return dist - r  # can't take the mean of this because scipy.optimize.leastsq needs it longer than the number of parameters to optimize (2 in our case)
 
 # For any centre, we can calculate the best r (the mean of distances from that centre)
 centre_intial = np.mean(x), np.mean(y)
