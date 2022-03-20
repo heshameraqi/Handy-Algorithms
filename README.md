@@ -14,4 +14,4 @@ Python scripts suggested refreshing order:
 11. [Detect lines in image (Hough Transform)](https://github.com/heshameraqi/Handy-Algorithms/blob/master/detect_lines_in_image_hough.py)
 12. [Sparse Matrix Class](https://github.com/heshameraqi/Handy-Algorithms/blob/master/SparseMatrixClass.py)
 13. [Merge, Quick, and Heap Sort](https://github.com/heshameraqi/Handy-Algorithms/blob/master/sort-merge-heap-quick.py)
-14. PyTorch (https://github.com/heshameraqi/Image-Classification-Object-Detection-with-PyTorch-Workshop)
+14. [PyTorch](https://github.com/heshameraqi/Image-Classification-Object-Detection-with-PyTorch-Workshop)
