@@ -13,4 +13,4 @@ Python scripts suggested refreshing order:
 10. [Fit points to a circle](https://github.com/heshameraqi/Handy-Algorithms/blob/master/fit_to_circle.py)
 11. [Detect lines in image (Hough Transform)](https://github.com/heshameraqi/Handy-Algorithms/blob/master/detect_lines_in_image_hough.py)
 12. [Sparse Matrix Class](https://github.com/heshameraqi/Handy-Algorithms/blob/master/SparseMatrixClass.py)
-13. [Merge, and Heap, and Quick Sort](https://github.com/heshameraqi/Handy-Algorithms/blob/master/sort-merge-heap-quick.py)
+13. [Merge, Quick, and Heap Sort](https://github.com/heshameraqi/Handy-Algorithms/blob/master/sort-merge-heap-quick.py)
