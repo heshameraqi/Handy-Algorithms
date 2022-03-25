@@ -1,3 +1,9 @@
+# A* is just like Dijkstra, the only difference is that A* tries to look for a better path by using a heuristic function which gives 
+#  priority to nodes that are supposed to be better than others while Dijkstra's just explore all possible paths.
+# Dijkstra is a special case for A* (when the heuristics is zero).
+# The heuristic function should be admissible (so A* provides optimal solution): never overestimate the cost. That means, the real cost to reach 
+#  goal node from node n should be greater than or equal h(n).
+
 import sys
  
 class Graph():
